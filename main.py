@@ -22,7 +22,12 @@ import sys
 import re
 import os
 
-bot = Client("bot", BOT_TOKEN, API_ID, API_HASH)
+bot = Client(
+    "bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 
 
 @bot.on_message(filters.command(["start"]) & filters.user(ADMINS))
