@@ -203,7 +203,8 @@ async def account_login(bot: Client, m: Message):
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
-                    await helper.send_vid(bot, m, cc, filename, thumb, name)
+                    start_time = time.time()
+                    await helper.send_vid(bot, m, cc, filename, thumb, name, progress=progress_bar,progress_args=(reply,start_time))
                     count += 1
 
             except Exception as e:
